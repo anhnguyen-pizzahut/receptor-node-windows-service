@@ -27,7 +27,8 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "lodash": "^4.17.15",
-    "nock": "^10.0.6"
+    "nock": "^10.0.6",
+    "node-adodb": "^5.0.2"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
