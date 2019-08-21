@@ -1,0 +1,60 @@
+{
+  "PaymentList": [
+    {
+      "IntegrationCode": "b459d491-44d3-476d-af4c-0a120c9089e7",
+      "PaidValue": 32.99,
+      "Online": true,
+      "AuthorizationCode": "0792e8d8-7276-4628-b8a4-009075fef7ed",
+      "PaymentType": {
+        "IdPaymentType": 0,
+        "Name": "Ryden",
+        "ImageAddress": null,
+        "MayHaveChange": false,
+        "Online": true
+      }
+    }
+  ],
+  "MenuDishInfoList": [],
+  "CustomerDeliveryAddress": {
+    "IdAddressType": null,
+    "Name": "Pizzahut Tester",
+    "ZipCode": "04560-000",
+    "StateCode": "SP",
+    "City": "São Paulo",
+    "Address": "R. Pensilvânia, 311 - Brooklin, São Paulo - SP, 04560-000, Brazil",
+    "Neighborhood": "R. Pensilvânia",
+    "Number": "311",
+    "Complement": "Brooklin",
+    "Reference": null,
+    "IdPhoneType": null,
+    "PhoneNumber": "0123456789",
+    "PhoneComplement": null,
+    "CoordinateData": {
+      "latitude": -23.6148009,
+      "longitude": -46.6852293
+    }
+  },
+  "Observation": null,
+  "IntegrationCode": "b459d491-44d3-476d-af4c-0a120c9089e7",
+  "CustomerDocument": null,
+  "CustomerPhoneComplement": null,
+  "CustomerPhoneNumber": "0123456789",
+  "CustomerIdPhoneType": null,
+  "IdOrderStatus": 0,
+  "Total": 32.99,
+  "DeliveryFee": 0,
+  "Discount": 0,
+  "ToGo": false,
+  "ExptectedReadyDate": "2019-08-21T12:10:00.092Z",
+  "FinalDate": "2019-08-21T12:15:00.092Z",
+  "Date": "2019-08-21T12:00:00.092Z",
+  "Customer": {
+    
+  },
+  "Restaurant": {
+    
+  },
+  "Key": 1,
+  "Subtotal": 32.99,
+  "ReceiptDocument": null
+}
