@@ -20,7 +20,7 @@ export interface GmsOrderSyncPayload {
 }
 
 export interface GmsOrder {
-  orderId: number,
+  orderId: string,
   orderDetails: string,
 }
 

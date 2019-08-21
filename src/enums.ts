@@ -1,0 +1,18 @@
+export enum OrderPaymentType {
+  UNKNOWN = 0,
+  CASH = 2
+}
+
+export enum OrderStatusReceptorEnum {
+  UNKNOWN = 0,
+  SENDING = 3,
+  SENT = 4,
+  CANCELLED = 6,
+  MANUAL_SENT = 9,
+  MANUAL_CANCELLED = 10,
+  FABRICATED = 14,
+  DELIVERED = 15,
+  CONFIRMED_AFTER_FINALIZATION = 16,
+  CANCELLED_AFTER_FINALIZATION = 17,
+  IN_DELIVERY = 19
+}
