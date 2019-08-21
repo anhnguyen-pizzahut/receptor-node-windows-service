@@ -1,6 +1,16 @@
-export const RECEPTOR_CONSTANTS = {
-  db: 'mdb',
-  file: 'data/order_receptor.mdb',
-  username: null,
-  password: 'y6u7mj'
+import winreg, { Registry, HKCU } from 'winreg'
+
+export const getDbAccess = async () => {
+  const regKey: Registry = new winreg({
+    hive: HKCU,
+    key: '\\Software\\PHDVReceptor',
+  });
+
+  const values = await regKey.values();
+  const dbFile = values.filter(v => v.name === 'DatabasePath')[0];
+
+  return {
+    file: dbFile ? dbFile.value : 'data/order_receptor.mdb',
+    password: 'y6u7mj',
+  }
 }

@@ -28,7 +28,9 @@
     "express-basic-auth": "^1.2.0",
     "lodash": "^4.17.15",
     "nock": "^10.0.6",
-    "node-adodb": "^5.0.2"
+    "node-adodb": "^5.0.2",
+    "rage-edit": "^1.2.0",
+    "winreg": "github:pizzahutuk/node-winreg#master"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",

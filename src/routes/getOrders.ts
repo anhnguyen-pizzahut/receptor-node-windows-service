@@ -7,7 +7,8 @@ import { Repository } from '../repository';
 export const getOrders = async (req: Request, res: Response) => {
   logger.info({ req }, 'Request');
 
-  const orders = await Repository().getOrders();
+  const repository = await Repository();
+  const orders = await repository.getOrders();
 
   const apiResponse: ApiResponse = {
     status: true,
