@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { notify } from 'node-notifier';
 import { ApiResponse, ReceptorOrder } from '../types';
 import { logger } from '@pizza-hut/gms-utils';
 import { mapToReceptorOrders, mapRequestBodyToOrders } from '../utils';
@@ -17,7 +18,14 @@ export const syncOrders = async (req: Request, res: Response) => {
   logger.info({ }, 'add order via repository');
   result = await (await Repository()).saveOrders(orders);
 
-  logger.info({ result }, 'sync completed');
+  logger.info({ result }, 'sync completed and notify');
+  notify({
+    title: 'New orders arrived',
+    sound: true,
+    message: 'There are new order arrived, please check them all',
+    icon: 'data/pizzahut-icon.png',
+  });
+
   const apiResponse: ApiResponse = {
     status: true,
     data: {
