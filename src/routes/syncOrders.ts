@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ApiResponse, ReceptorOrder, GmsOrder } from '../types';
 import { logger } from '@pizza-hut/gms-utils';
-import { mapToReceptorOrders } from '../utils';
+import { mapToReceptorOrders, mapRequestBodyToOrders } from '../utils';
 import { Repository } from '../repository';
 
 export const syncOrders = async (req: Request, res: Response) => {
@@ -10,7 +10,9 @@ export const syncOrders = async (req: Request, res: Response) => {
   logger.info({ orders: <ReceptorOrder>req.body }, 'Sync requested');
 
   logger.info({ body }, 'retrieve order from remote source');
-  const orders = mapToReceptorOrders(<GmsOrder[]>body);
+  const orders = mapToReceptorOrders(
+    mapRequestBodyToOrders(JSON.stringify(body))
+  );
 
   logger.info({ }, 'add order via repository');
   result = await (await Repository()).saveOrders(orders);

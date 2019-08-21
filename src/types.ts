@@ -14,8 +14,14 @@ export interface ApiRoute {
   response: ApiResponse,
 }
 
+export interface GmsOrderSyncPayload {
+  order_id: string,
+  order_details: string,
+}
+
 export interface GmsOrder {
   orderId: string,
+  orderDetails: string,
 }
 
 export interface ReceptorOrder {
