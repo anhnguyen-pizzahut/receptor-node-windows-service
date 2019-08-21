@@ -1,3 +1,5 @@
+import { ReceptorOrder, GmsOrder } from "./types";
+
 export const EndpointsFactory = (): string | undefined => {
   const { MARKET } = process.env;
   switch (MARKET) {
@@ -8,4 +10,8 @@ export const EndpointsFactory = (): string | undefined => {
     default:
       return undefined;
   }
+}
+
+export const mapToReceptorOrders = (gmsOrder: GmsOrder[]): ReceptorOrder[] => {
+  return [];
 }

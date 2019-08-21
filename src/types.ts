@@ -14,6 +14,10 @@ export interface ApiRoute {
   response: ApiResponse,
 }
 
+export interface GmsOrder {
+  orderId: string,
+}
+
 export interface ReceptorOrder {
   orderId: string,
 }

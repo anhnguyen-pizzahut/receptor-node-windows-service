@@ -10,5 +10,5 @@ Receptor has database that manages POS orders. This service is to write order to
 
 # How to use
 
-TBD
+This repo codes only run on *Windows*
 
