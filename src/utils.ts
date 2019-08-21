@@ -14,6 +14,7 @@ export const EndpointsFactory = (): string | undefined => {
 }
 
 export const mapRequestBodyToOrders = (body: string): GmsOrder[] => {
+  logger.info({ body }, 'map request body to synchronizable orders');
   try {
     if (body && body.length > 0) {
       const requestedOrders: GmsOrderSyncPayload[] = JSON.parse(body);

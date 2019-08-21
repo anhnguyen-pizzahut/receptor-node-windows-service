@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ApiResponse, ReceptorOrder, GmsOrder } from '../types';
+import { ApiResponse, ReceptorOrder } from '../types';
 import { logger } from '@pizza-hut/gms-utils';
 import { mapToReceptorOrders, mapRequestBodyToOrders } from '../utils';
 import { Repository } from '../repository';
@@ -7,7 +7,7 @@ import { Repository } from '../repository';
 export const syncOrders = async (req: Request, res: Response) => {
   let result: string = 'ok';
   const { body } = req;
-  logger.info({ orders: <ReceptorOrder>req.body }, 'Sync requested');
+  logger.info({ orders: <ReceptorOrder>req.body }, 'sync requested');
 
   logger.info({ body }, 'retrieve order from remote source');
   const orders = mapToReceptorOrders(
@@ -17,7 +17,7 @@ export const syncOrders = async (req: Request, res: Response) => {
   logger.info({ }, 'add order via repository');
   result = await (await Repository()).saveOrders(orders);
 
-  logger.info({ result }, 'Sync completed');
+  logger.info({ result }, 'sync completed');
   const apiResponse: ApiResponse = {
     status: true,
     data: {

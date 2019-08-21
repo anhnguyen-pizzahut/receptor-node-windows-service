@@ -5,7 +5,7 @@ import { Repository } from '../repository';
 // import { logger } from '@pizza-hut/gms-utils';
 
 export const getOrders = async (req: Request, res: Response) => {
-  logger.info({ req }, 'Request');
+  logger.info({ query: req.query }, 'request query params');
 
   const repository = await Repository();
   const orders = await repository.getOrders();
