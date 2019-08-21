@@ -1,3 +1,6 @@
+
+import { notify } from 'node-notifier';
+import alert from 'alert-node';
 import { ReceptorOrder, GmsOrder, GmsOrderSyncPayload } from "./types";
 import { logger } from "@pizza-hut/gms-utils";
 
@@ -11,6 +14,21 @@ export const EndpointsFactory = (): string | undefined => {
     default:
       return undefined;
   }
+}
+
+export const showNotification = (message: string) => {
+  notify({
+    title: 'PHDV - Novas encomendas chegaram',
+    sound: true,
+    message,
+    icon: 'data/pizzahut-icon.png',
+  });
+}
+
+export const showIncomingOrdersAlert = (message: string, ordersList: ReceptorOrder[]) => {
+  const displayedMsg = `Sistema de Gerenciamento de Pedidos PHDV\n${message}\n\nPedidos recebidos:\n`;
+  const displayedOrderId = ordersList.map(x => x.orderId).join('\n');
+  alert(`${displayedMsg}${displayedOrderId}`);
 }
 
 export const mapRequestBodyToOrders = (body: string): GmsOrder[] => {

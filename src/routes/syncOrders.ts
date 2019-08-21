@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { notify } from 'node-notifier';
 import { ApiResponse, ReceptorOrder } from '../types';
 import { logger } from '@pizza-hut/gms-utils';
-import { mapToReceptorOrders, mapRequestBodyToOrders } from '../utils';
+import { mapToReceptorOrders, mapRequestBodyToOrders, showIncomingOrdersAlert } from '../utils';
 import { Repository } from '../repository';
 
 export const syncOrders = async (req: Request, res: Response) => {
@@ -18,13 +17,12 @@ export const syncOrders = async (req: Request, res: Response) => {
   logger.info({ }, 'add order via repository');
   result = await (await Repository()).saveOrders(orders);
 
+  if (orders && orders.length > 0) {
+    showIncomingOrdersAlert('Há nova ordem chegou, por favor, verifique-os todos', orders);
+  } else {
+    logger.info({ }, 'no orders to show');
+  }
   logger.info({ result }, 'sync completed and notify');
-  notify({
-    title: 'New orders arrived',
-    sound: true,
-    message: 'There are new order arrived, please check them all',
-    icon: 'data/pizzahut-icon.png',
-  });
 
   const apiResponse: ApiResponse = {
     status: true,
